@@ -2,7 +2,7 @@
 
 English | [简体中文](./README.md)
 
-Agent Harness is a local development coordination framework for Codex, Claude Code, and other agents. It coordinates repository work through explicit workflows, reusable skills, Git worktrees, and visible CLI executor panes.
+Flex-agent is a local development coordination framework for Codex, Claude Code, and other agents. It coordinates repository work through explicit workflows, reusable skills, Git worktrees, and visible CLI executor panes.
 
 Design goals:
 
