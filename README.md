@@ -2,7 +2,7 @@
 
 [English](./README.en.md) | 简体中文
 
-Agent Harness 是一个本地 Agent 开发协作框架，用于让 Codex、Claude Code 等工具通过统一 workflow、skills、Git worktree 和可见 CLI executor pane 协作完成开发任务。
+Flex-agent 是一个本地 Agent 开发协作框架，用于让 Codex、Claude Code 等工具通过统一 workflow、skills、Git worktree 和可见 CLI executor pane 协作完成开发任务。
 
 设计目标：
 
