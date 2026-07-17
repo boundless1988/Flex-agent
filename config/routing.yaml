@@ -3,16 +3,14 @@ routing:
     brainstorming: codex-xhigh-2
     writing-plans: codex-xhigh-2
     reviewing-plans: codex-xhigh-2
-    executing-plans: claude-deepseek-1
-    systematic-debugging: claude-deepseek-1
-    code-review: claude-deepseek-2
-    verification-before-completion: claude-mimo-2
+    executing-plans: codex-mimo-1
+    systematic-debugging: codex-mimo-1
+    code-review: codex-high-2
+    verification-before-completion: codex-mimo-2
     writing-skills: codex-xhigh-2
 
   parallel_pool:
     - codex-xhigh-2
     - codex-high-2
-    - claude-deepseek-1
-    - claude-mimo-1
-    - claude-deepseek-2
-    - claude-mimo-2
+    - codex-mimo-1
+    - codex-mimo-2

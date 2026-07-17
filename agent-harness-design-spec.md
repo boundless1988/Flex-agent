@@ -547,24 +547,29 @@ Executor 是一个独立运行通道，不只是“宿主 + 模型”。
 
 ```yaml
 executors:
-  codex-1:
+  codex-xhigh-1:
     host: codex-cli
-    model: default
+    model: gpt-5.6-sol
+    reasoning_effort: xhigh
 
-  codex-2:
+  codex-high-1:
     host: codex-cli
-    model: default
+    model: gpt-5.6-terra
+    reasoning_effort: xhigh
 
-  codex-3:
+  codex-mimo-1:
     host: codex-cli
-    model: default
-
-  claude-1:
-    host: claude-code
-    model: default
+    provider: mimo
+    model: mimo-v2.5-pro
 ```
 
-`default` 表示使用宿主当前默认模型。实际注册项以 `config/executors.yaml` 为准。
+实际注册项以 `config/executors.yaml` 为准。字段 `host`、`provider`、`model` 与
+可选的 `reasoning_effort` 是运行时配置。当前所有注册 executor 均由
+`integrations/codex/start-codex.ps1` 启动。
+
+`start-codex.ps1` 对 MiMo 使用其 Responses-compatible endpoint，并关闭该 endpoint
+当前不接受的 `web_search` 与 `image_generation` 工具类型。当前不注册 DeepSeek
+executor，也不实现 Codex CLI 到 DeepSeek API 的适配链路。
 
 ### 11.3 Routing
 
@@ -575,19 +580,20 @@ executors:
 ```yaml
 routing:
   defaults:
-    brainstorming: codex-1
-    writing-plans: codex-1
-    reviewing-plans: codex-2
-    executing-plans: codex-1
-    systematic-debugging: codex-2
-    code-review: codex-3
-    verification-before-completion: codex-2
-    writing-skills: codex-1
+    brainstorming: codex-xhigh-2
+    writing-plans: codex-xhigh-2
+    reviewing-plans: codex-xhigh-2
+    executing-plans: codex-mimo-1
+    systematic-debugging: codex-mimo-1
+    code-review: codex-high-2
+    verification-before-completion: codex-mimo-2
+    writing-skills: codex-xhigh-2
 
   parallel_pool:
-    - codex-1
-    - codex-2
-    - codex-3
+    - codex-xhigh-2
+    - codex-high-2
+    - codex-mimo-1
+    - codex-mimo-2
 ```
 
 ### 11.4 不进入 Routing 的 Skill
@@ -1008,7 +1014,9 @@ Controller：
 
 ### 17.2 规则适配器
 
-当前只有 Codex 规则入口由 Harness 同步。Claude Code 作为可见 executor 使用，不接入全局 controller rules。
+当前只有 Codex 规则入口由 Harness 同步，且所有已注册的 visible executor 均使用
+Codex CLI。Claude Code integration 被保留，以便未来重新注册 `host: claude-code`
+的 executor，但不接入当前 routing 链路或全局 controller rules。
 
 Codex 链路：
 

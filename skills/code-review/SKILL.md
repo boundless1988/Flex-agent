@@ -1,4 +1,4 @@
-﻿---
+---
 name: code-review
 description: Use when Codex must perform a read-only technical code review of implemented changes against confirmed requirements, plan, and repository context, reporting correctness, boundary, maintainability, security, and test findings with severity and evidence.
 ---

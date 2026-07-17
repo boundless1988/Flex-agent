@@ -1,40 +1,30 @@
 executors:
   codex-xhigh-1:
     host: codex-cli
-    model: gpt-5.5
+    model: gpt-5.6-sol
     reasoning_effort: xhigh
 
   codex-xhigh-2:
     host: codex-cli
-    model: gpt-5.5
+    model: gpt-5.6-sol
     reasoning_effort: xhigh
 
   codex-high-1:
     host: codex-cli
-    model: gpt-5.5
-    reasoning_effort: high
+    model: gpt-5.6-terra
+    reasoning_effort: xhigh
 
   codex-high-2:
     host: codex-cli
-    model: gpt-5.5
-    reasoning_effort: high
+    model: gpt-5.6-terra
+    reasoning_effort: xhigh
 
-  claude-deepseek-1:
-    host: claude-code
-    provider: deepseek
-    model: deepseek-v4-pro[1m]
-
-  claude-deepseek-2:
-    host: claude-code
-    provider: deepseek
-    model: deepseek-v4-pro[1m]
-
-  claude-mimo-1:
-    host: claude-code
+  codex-mimo-1:
+    host: codex-cli
     provider: mimo
     model: mimo-v2.5-pro
 
-  claude-mimo-2:
-    host: claude-code
+  codex-mimo-2:
+    host: codex-cli
     provider: mimo
     model: mimo-v2.5-pro
